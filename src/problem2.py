@@ -87,12 +87,12 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    # run_test_init()
-    # run_test_area()
-    # run_test_bigger_triangle()
-    # run_test_shrink_or_expand()
-    # run_test_return_doubled_triangle()
-    # run_test_get_largest_area()
+    run_test_init()
+    run_test_area()
+    run_test_bigger_triangle()
+    run_test_shrink_or_expand()
+    run_test_return_doubled_triangle()
+    run_test_get_largest_area()
 
 
 ###############################################################################
@@ -102,6 +102,9 @@ class Triangle(object):
     """ Represents a triangle in 2-dimensional space. """
 
     def __init__(self, a, b, c):
+        self.a = a.clone()
+        self.b = b.clone()
+        self.c = c.clone()
         """
         What comes in:
           -- self and three Point objects
@@ -138,7 +141,7 @@ class Triangle(object):
           :type c: Point
         """
         # ---------------------------------------------------------------------
-        # TODO: 2.
+        # DONE: 2.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -148,6 +151,17 @@ class Triangle(object):
         # ---------------------------------------------------------------------
 
     def area(self):
+        LOL = self.a
+        AFK = Point.distance_from(LOL,self.b)
+        print(AFK)
+        Diablo = Point.distance_from(self.b,self.c)
+        print(Diablo)
+        Pac = Point.distance_from(self.c,self.a)
+        print(Pac)
+        Pitbull = ((AFK+Diablo+Pac)*0.5)
+        print(Pitbull)
+        loop = math.sqrt((Pitbull*(Pitbull-AFK)*(Pitbull-Diablo)*(Pitbull-Pac)))
+        return loop
         """
         What comes in:
           -- self
@@ -178,7 +192,7 @@ class Triangle(object):
           :rtype: float
         """
         # ---------------------------------------------------------------------
-        # TODO: 3.
+        # DONE: 3.
         #   a. READ the above specification, including the Example AND HINT!
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -188,6 +202,10 @@ class Triangle(object):
         # ---------------------------------------------------------------------
 
     def bigger_triangle(self, triangle2):
+        if self.area() > triangle2.area():
+            return True
+        else:
+            return False
         """
         What comes in:
           -- self
@@ -201,7 +219,7 @@ class Triangle(object):
           :rtype: bool
         """
         # ---------------------------------------------------------------------
-        # TODO 4:
+        # done 4:
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -211,6 +229,14 @@ class Triangle(object):
         # ---------------------------------------------------------------------
 
     def shrink_or_expand(self, f):
+        self.a.x = self.a.x * f
+        self.a.y = self.a.y * f
+        self.b.x = self.b.x * f
+        self.b.y = self.b.y * f
+        self.c.x = self.c.x * f
+        self.c.y = self.c.y * f
+
+
         """
          What comes in:
            -- self
@@ -224,7 +250,7 @@ class Triangle(object):
            :type: f: float
         """
         # ---------------------------------------------------------------------
-        # TODO 8:
+        # DONE 8:
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -234,6 +260,14 @@ class Triangle(object):
         # ---------------------------------------------------------------------
 
     def return_doubled_triangle(self):
+        LOL = self
+        LOL.a.x = LOL.a.x * 2
+        LOL.b.x = LOL.b.x * 2
+        LOL.c.x = LOL.c.x * 2
+        LOL.a.y = LOL.a.y * 2
+        LOL.b.y = LOL.b.y * 2
+        LOL.c.y = LOL.c.y * 2
+        return LOL
         """
         What comes in:
           -- self
@@ -247,7 +281,7 @@ class Triangle(object):
           :rtype: Triangle:
         """
         # -------------------------------------------------------------------------
-        # TODO: 9
+        # DONE: 9
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -257,6 +291,11 @@ class Triangle(object):
         # -------------------------------------------------------------------------
 
     def get_largest_area(self):
+        LOL = self.area()
+        if LOL < self.area():
+            LOL = self.area()
+        return LOL
+
         """
         What comes in:
           -- self
@@ -271,7 +310,7 @@ class Triangle(object):
           :rtype: Float:
         """
         # ---------------------------------------------------------------------
-        # TODO: 9
+        # DONE: 9
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
