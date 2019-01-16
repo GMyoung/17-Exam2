@@ -3,8 +3,8 @@ Exam 2, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Yicheng Yang.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import testing_helper
 import time
@@ -14,12 +14,12 @@ def main():
     """ Calls the   TEST   functions in this module. """
     # run_test_problem1a()
     # run_test_problem1b()
-    # run_test_problem1c()
-    # run_test_problem1d()
+    run_test_problem1c()
+    run_test_problem1d()
 
 
 ###############################################################################
-# TODO: 2.  READ the doc-strings for the  sum_of_digits  and  is_prime
+# Done: 2.  READ the doc-strings for the  sum_of_digits  and  is_prime
 # functions defined below.  They are the same as you have seen before.
 # After you UNDERSTAND the doc-string (JUST the doc-string, NOT the code),
 # ASKING QUESTIONS AS NEEDED, change the above _TODO_ to DONE.
@@ -131,6 +131,10 @@ def run_test_problem1a():
 
 
 def problem1a(sequence):
+    HOTS = 0
+    HOTS = sequence[-1] + sequence[0]
+    return HOTS
+
     """
     What comes in:  A sequence of numbers.  You may assume that the sequence
       contains at least 2 numbers.
@@ -151,6 +155,7 @@ def problem1a(sequence):
 
 
 def run_test_problem1b():
+
     """ Tests the   problem1b   function. """
     print()
     print('--------------------------------------------------')
@@ -274,6 +279,13 @@ def run_test_problem1b():
 
 
 def problem1b(strings):
+    LOL = []
+    for k in range(len(strings)):
+        if is_prime(len(strings[k])):
+            LOL.append(strings[k])
+
+    return LOL
+
     """
     What comes in:  A sequence of strings.  You may assume that each string
       has length at least 2.
@@ -293,7 +305,7 @@ def problem1b(strings):
            FOR HELP if this problem's specification is not clear to you.
      """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     ###########################################################################
 
@@ -369,6 +381,16 @@ def run_test_problem1c():
 
 
 def problem1c(integers):
+    LOL = 999
+    for k in range(len(integers)):
+        if integers[k] < k:
+            LOL = integers[k]
+            return LOL
+        else:
+            LOL = LOL
+    return LOL
+
+
     """
     What comes in:  A sequence of integers.
     What goes out:
@@ -389,7 +411,7 @@ def problem1c(integers):
            their respective indices (0, 1, and 2, respectively).
      """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #          Tests have been written for you (above).
     ###########################################################################
 
@@ -505,6 +527,15 @@ def run_test_problem1d():
 
 
 def problem1d(t, sequence):
+    LOL = 1
+    print(len(sequence)//2)
+    for k in range(len(sequence)//2,len(sequence)):
+        if sum_of_digits(sequence[k]) > t:
+            LOL = LOL * sequence[k]
+        else :
+            LOL = LOL
+    return LOL
+
     """
     What comes in:  An integer t and a sequence of positive integers.
       You may assume that the length of the sequence is even.
